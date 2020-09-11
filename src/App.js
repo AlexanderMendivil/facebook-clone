@@ -6,15 +6,17 @@ import Header from "./Header";
 function App() {
   return (
     <div className="app">
-      <h1>lets build a facebook clone</h1>    
 
       {/* HEADER COMPONENT */}
       <Header />
       {/* APP BODY */}
+      <div className="app__body">
+
         {/* SIDEBAR */}
         {/* FEED */}
         {/* WIDGETS */}
         
+      </div>
      </div>
   );
 }
