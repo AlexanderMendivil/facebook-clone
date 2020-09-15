@@ -15,7 +15,7 @@ function SideBar(){
     return(
         <div className="sidebar">
            
-            <SideBarRow src="" title="Alexander"/>
+            <SideBarRow src="https://www.ecb.europa.eu/pub/research/authors/profiles/profile_pics/author_picture_alexander-popov.jpg" title="Alexander"/>
             <SideBarRow Icon={LocalHospitalIcon}
              title="COVID-19 Information Center"/>
             <SideBarRow Icon={EmojiFlagsIcon} title="Pages"/>
