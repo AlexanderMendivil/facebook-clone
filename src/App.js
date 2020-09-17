@@ -5,17 +5,22 @@ import Header from "./Header";
 import SideBar from "./SideBar";
 import Feed from "./Feed";
 import Widget from "./Widget";
+import Login from "./Login"
 function App() {
+
+  const user= null;
   return (
     <div className="app">
-
+      {!user ?  ( <Login /> ) : (
+        <>
       <Header />
       <div className="app__body">
       <SideBar />
         <Feed />
-        {/* WIDGETS */}
         <Widget />
       </div>
+        </>
+      )}
      </div>
   );
 }
