@@ -10,12 +10,14 @@ import ChatIcon from "@material-ui/icons/Chat";
 import StorefrontIcon from "@material-ui/icons/Storefront";
 import VideoLibraryIcon from "@material-ui/icons/VideoLibrary";
 import { ExpandMoreOutlined } from "@material-ui/icons"
+import { useStateValue } from "./StateProvider";
 
 function SideBar(){
+    const [{ user }, dispatch] = useStateValue();
     return(
         <div className="sidebar">
            
-            <SideBarRow src="https://www.ecb.europa.eu/pub/research/authors/profiles/profile_pics/author_picture_alexander-popov.jpg" title="Alexander"/>
+            <SideBarRow src={user.photoURL} title={user.displayName}/>
             <SideBarRow Icon={LocalHospitalIcon}
              title="COVID-19 Information Center"/>
             <SideBarRow Icon={EmojiFlagsIcon} title="Pages"/>
