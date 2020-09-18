@@ -1,37 +1,37 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 
 import "./Feed.css"
 import StoryReel from "./StoryReel";
 import MessageSender from "./MessageSender";
 import Post from "./Post";
+import db from "./firebase";
 
 function Feed(){
+    const [posts, setPosts] = useState([]);
+
+    useEffect(()=>{
+        db.collection("posts")
+        .orderBy("timestamp", "desc")
+        .onSnapshot((Snapshot) =>
+          setPosts(Snapshot.docs.map((doc)=>
+          ({id: doc.id, data: doc.data() })))  
+        );
+    }, []);
+
     return(
         <div className="feed">
         <StoryReel />
         <MessageSender />
-
-        <Post 
-        profilePic="https://cdn.psychologytoday.com/sites/default/files/styles/image-article_inline_full/public/field_blog_entry_images/2018-09/shutterstock_648907024.jpg?itok=ji6Xj8tv"
-        username="Alexander"
-        timestamp="time"
-        message="imagen"
-        image="https://code.org/shared/images/social-media/codeorg2019_social.png"
-        />        
-        <Post
-        profilePic=""
-        message=""
-        timestamp=""
-        username=""
-        image=""
-        />        
-        <Post 
-        profilePic=""
-        message=""
-        timestamp=""
-        username=""
-        image=""
-        />        
+        
+        {posts.map((post)=>(
+            <Post 
+            key={post.id}
+            profilePic={post.data.profilePic}
+            message={post.data.message}
+            timestamp={post.data.timestamp}
+            username={post.data.username}
+            image={post.data.image}/>
+        ))}
         </div>
     )
 }

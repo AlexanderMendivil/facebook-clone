@@ -9,7 +9,7 @@ import NearMeIcon from "@material-ui/icons/NearMe";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import { ExpandMoreOutlined } from "@material-ui/icons";
 
-function Post({ profilePic, image, username, timesamp, message }){
+function Post({ profilePic, image, username, timestamp, message }){
 
     return (
         <div className="post">
@@ -18,7 +18,7 @@ function Post({ profilePic, image, username, timesamp, message }){
                 className="post__avatar" />
             <div className="post__topInfo">
             <h3>{username}</h3>
-            <p>timesam</p>
+            <p>{new Date(timestamp?.toDate()).toUTCString()}</p>
             </div>
             </div>
 
